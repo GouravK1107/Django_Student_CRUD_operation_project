@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <!-- Optional: Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/edit_student_style.css' %}">
+</head>
+<body>
+    <div class="edit-card">
+        <h2>Edit Student: {{ student.name }}</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ student.name }}" required>
+
+            <label for="std" class="form-label">Class:</label>
+            <input type="number" class="form-control" id="std" name="std" value="{{ student.std }}" required>
+
+            <label for="roll_no" class="form-label">Roll No:</label>
+            <input type="text" class="form-control" id="roll_no" name="roll_no" value="{{ student.roll_no }}" required>
+
+            <label for="father_name" class="form-label">Father's Name:</label>
+            <input type="text" class="form-control" id="father_name" name="father_name" value="{{ student.father_name }}" required>
+
+            <label for="mother_name" class="form-label">Mother's Name:</label>
+            <input type="text" class="form-control" id="mother_name" name="mother_name" value="{{ student.mother_name }}" required>
+
+            <label for="address" class="form-label">Address:</label>
+            <textarea class="form-control" id="address" name="address" rows="3" required>{{ student.address }}</textarea>
+
+            <label for="blood_group" class="form-label">Blood Group:</label>
+            <select class="form-select" id="blood_group" name="blood_group" required>
+                <option value="" disabled>Select</option>
+                <option value="A+" {% if student.blood_group == "A+" %}selected{% endif %}>A+</option>
+                <option value="A-" {% if student.blood_group == "A-" %}selected{% endif %}>A-</option>
+                <option value="B+" {% if student.blood_group == "B+" %}selected{% endif %}>B+</option>
+                <option value="B-" {% if student.blood_group == "B-" %}selected{% endif %}>B-</option>
+                <option value="AB+" {% if student.blood_group == "AB+" %}selected{% endif %}>AB+</option>
+                <option value="AB-" {% if student.blood_group == "AB-" %}selected{% endif %}>AB-</option>
+                <option value="O+" {% if student.blood_group == "O+" %}selected{% endif %}>O+</option>
+                <option value="O-" {% if student.blood_group == "O-" %}selected{% endif %}>O-</option>
+            </select>
+
+            <button type="submit" class="btn-save mt-3">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
