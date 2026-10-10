@@ -8,6 +8,11 @@ A simple Student Record Management app built with Django — my **first-ever Dja
 
 ---
 
+> 🎓 **Project Type: Learning**
+>
+> This project is built for learning purposes. I created it to understand and practice new concepts, tools, and technologies. The code may not follow production-level standards, and it's a work in progress as I keep exploring and improving.
+> 
+
 ## 📝 About
 
 This project was where I took my first real steps into Django. It's a basic Student Management app that performs full **CRUD (Create, Read, Update, Delete)** operations on student records — built to understand how Django models, views, URLs, and templates connect together.
